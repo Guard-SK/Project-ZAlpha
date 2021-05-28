@@ -48,4 +48,4 @@ async def on_ready():
     print("ZAlpha ready!")
     await bot.change_presence(activity=discord.Game(name="League of Developers|Zhelp"))
 
-bot.run("os.environ['DISCORD_TOKEN']") #taking token from Heroku os.environ['DISCORD_TOKEN']
+bot.run(os.environ['DISCORD_TOKEN']) #taking token from Heroku os.environ['DISCORD_TOKEN']
