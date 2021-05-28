@@ -29,13 +29,15 @@ COGS = [path[:-3] for path in os.listdir('./cogs') if path[-3:] == '.py']
 
 @bot.command()
 async def load(ctx, extension):
-    bot.load_extension(f"cogs.{extension}")
-    await ctx.send("Cog(s) loaded.")
+    if ctx.author.id is OWNER_IDS:
+        bot.load_extension(f"cogs.{extension}")
+        await ctx.send("Cog(s) loaded.")
 
 @bot.command()
 async def unload(ctx, extension):
-    bot.unload_extension(f"cogs.{extension}")
-    await ctx.send("Cog(s) unloaded.")
+    if ctx.author.id is OWNER_IDS:
+        bot.unload_extension(f"cogs.{extension}")
+        await ctx.send("Cog(s) unloaded.")
 
 
 for filename in os.listdir("./cogs"):
@@ -48,4 +50,4 @@ async def on_ready():
     print("ZAlpha ready!")
     await bot.change_presence(activity=discord.Game(name="League of Developers|Zhelp"))
 
-bot.run(os.environ['DISCORD_TOKEN']) #taking token from Heroku os.environ['DISCORD_TOKEN']
+bot.run("ODQyMTIyNjA2MzM2ODAyODI3.YJwtyw.7F4SvxE-HKeNiJmCSYY5-UPaWJQ") #taking token from Heroku os.environ['DISCORD_TOKEN']
