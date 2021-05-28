@@ -3,6 +3,11 @@ from discord.ext import commands
 
 import json
 import os
+from apscheduler.schedulers.asyncio import AsyncIOScheduler
+from discord.ext.commands import Bot as BotBase
+from discord.ext.commands.core import has_permissions
+
+### Taking token from json file ###
 
 # if os.path.exists(os.getcwd() + "/config.json"):
 #     with open("./config.json") as f:
@@ -19,13 +24,32 @@ import os
 
 bot = commands.Bot(command_prefix="Z")
 
+OWNER_IDS = [544573811899629568]
+COGS = [path[:-3] for path in os.listdir('./cogs') if path[-3:] == '.py']
+
+@bot.command()
+async def load(ctx, extension):
+    bot.load_extension(f"cogs.{extension}")
+    await ctx.send("Cog(s) loaded.")
+
+@bot.command()
+async def unload(ctx, extension):
+    bot.unload_extension(f"cogs.{extension}")
+    await ctx.send("Cog(s) unloaded.")
+
+
+for filename in os.listdir("./cogs"):
+    if filename.endswith(".py"):
+        bot.load_extension(f"cogs.{filename[:-3]}")
+
+
 @bot.event
 async def on_ready():
     print("ZAlpha ready!")
     await bot.change_presence(activity=discord.Game(name="League of Developers|Zhelp"))
 
-@bot.command(name="ping")
-async def ping(ctx):
-    await ctx.send(f"Pong {round(bot.latency*1000, 1)} ms!")
+# @bot.command(name="ping")
+# async def ping(ctx):
+#     await ctx.send(f"Pong {round(bot.latency*1000, 1)} ms!")
 
-bot.run(os.environ['DISCORD_TOKEN'])
+bot.run("ODQyMTIyNjA2MzM2ODAyODI3.YJwtyw.9Rc92LbbIHoalXPLWMmip-KalgM") #taking token from Heroku os.environ['DISCORD_TOKEN']
