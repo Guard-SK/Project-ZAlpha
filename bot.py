@@ -52,4 +52,4 @@ async def on_ready():
 # async def ping(ctx):
 #     await ctx.send(f"Pong {round(bot.latency*1000, 1)} ms!")
 
-bot.run("ODQyMTIyNjA2MzM2ODAyODI3.YJwtyw.9Rc92LbbIHoalXPLWMmip-KalgM") #taking token from Heroku os.environ['DISCORD_TOKEN']
+bot.run("os.environ['DISCORD_TOKEN']") #taking token from Heroku os.environ['DISCORD_TOKEN']
