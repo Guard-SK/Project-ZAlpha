@@ -29,15 +29,15 @@ COGS = [path[:-3] for path in os.listdir('./cogs') if path[-3:] == '.py']
 
 @bot.command()
 async def load(ctx, extension):
-    if ctx.author.id is OWNER_IDS:
-        bot.load_extension(f"cogs.{extension}")
-        await ctx.send("Cog(s) loaded.")
+    # if ctx.author.id is OWNER_IDS:
+    bot.load_extension(f"cogs.{extension}")
+    await ctx.send("Cog(s) loaded.")
 
 @bot.command()
 async def unload(ctx, extension):
-    if ctx.author.id is OWNER_IDS:
-        bot.unload_extension(f"cogs.{extension}")
-        await ctx.send("Cog(s) unloaded.")
+    # if ctx.author.id is OWNER_IDS:
+    bot.unload_extension(f"cogs.{extension}")
+    await ctx.send("Cog(s) unloaded.")
 
 
 for filename in os.listdir("./cogs"):
