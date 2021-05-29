@@ -1,4 +1,3 @@
-from bot import bot
 from random import choice
 import discord
 from discord.ext.commands import Cog
@@ -11,7 +10,7 @@ class Fun(Cog):
 
     @commands.command(name="ping")
     async def fun(self, ctx):
-        await ctx.send(f"Pong {round(bot.latency*1000, 1)} ms!")   
+        await ctx.send(f"Pong {round(self.bot.latency*1000, 1)} ms!")   
 
     @commands.command(name="hi", aliases=["hello", "sup"])
     async def hi(self, ctx):

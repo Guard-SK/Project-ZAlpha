@@ -3,9 +3,6 @@ from discord.ext import commands
 
 import json
 import os
-from apscheduler.schedulers.asyncio import AsyncIOScheduler
-from discord.ext.commands import Bot as BotBase
-from discord.ext.commands.core import has_permissions
 
 ### Taking token from json file ###
 
@@ -29,15 +26,21 @@ COGS = [path[:-3] for path in os.listdir('./cogs') if path[-3:] == '.py']
 
 @bot.command()
 async def load(ctx, extension):
-    # if ctx.author.id is OWNER_IDS:
-    bot.load_extension(f"cogs.{extension}")
-    await ctx.send("Cog(s) loaded.")
+    if ctx.message.author.id == 544573811899629568:
+        bot.load_extension(f"cogs.{extension}")
+        await ctx.send("Cog(s) loaded.")
+
+    else:
+        ctx.send("You are not the owner of the bot!!! GET OUT OF HERE!!! <:peepoSmash:839250706732417144>")
 
 @bot.command()
 async def unload(ctx, extension):
-    # if ctx.author.id is OWNER_IDS:
-    bot.unload_extension(f"cogs.{extension}")
-    await ctx.send("Cog(s) unloaded.")
+    if ctx.message.author.id == 544573811899629568:
+        bot.unload_extension(f"cogs.{extension}")
+        await ctx.send("Cog(s) unloaded.")
+
+    else:
+        ctx.send("You are not the owner of the bot!!! GET OUT OF HERE!!! <:peepoSmash:839250706732417144>")
 
 
 for filename in os.listdir("./cogs"):
