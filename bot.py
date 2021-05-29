@@ -31,7 +31,7 @@ async def load(ctx, extension):
         await ctx.send("Cog(s) loaded.")
 
     else:
-        await ctx.send(f"You are not the owner of the bot!!! GET OUT OF HERE!!! <:akaliNani:839873363459309609>")
+        await ctx.send(f"You are not the owner of the bot!!! GET OUT OF HERE!!! <:akaliNani:848283879826784286>")
 
 @bot.command()
 async def unload(ctx, extension):
@@ -40,7 +40,7 @@ async def unload(ctx, extension):
         await ctx.send("Cog(s) unloaded.")
 
     else:
-        await ctx.send(f"You are not the owner of the bot!!! GET OUT OF HERE!!! <:akaliNani:839873363459309609>")
+        await ctx.send(f"You are not the owner of the bot!!! GET OUT OF HERE!!! <:akaliNani:848283879826784286>")
 
 
 for filename in os.listdir("./cogs"):
