@@ -51,6 +51,6 @@ for filename in os.listdir("./cogs"):
 @bot.event
 async def on_ready():
     print("ZAlpha ready!")
-    await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="https://github.com/Guard-SK/Subdroid"))
+    await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="https://github.com/Guard-SK/Project-ZAlpha"))
 
 bot.run(os.environ['DISCORD_TOKEN']) #taking token from Heroku os.environ['DISCORD_TOKEN']
