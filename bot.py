@@ -53,4 +53,4 @@ async def on_ready():
     print("ZAlpha ready!")
     await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name="https://github.com/Guard-SK/Subdroid"))
 
-bot.run("ODQyMTIyNjA2MzM2ODAyODI3.YJwtyw.-L1wDbF76CjwZPu0RxxVKRVUb6g") #taking token from Heroku os.environ['DISCORD_TOKEN']
+bot.run(os.environ['DISCORD_TOKEN']) #taking token from Heroku os.environ['DISCORD_TOKEN']
